@@ -4,6 +4,7 @@ import com.bookshelf.bookservice.dto.BookDto
 import com.bookshelf.bookservice.service.BookService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
+import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping(name = "v1/book")
+@Validated
 class BookController(private val bookService: BookService,) {
 
     @GetMapping
@@ -18,8 +20,8 @@ class BookController(private val bookService: BookService,) {
       return ResponseEntity.ok(bookService.getAllBooks());
     }
 
-    @GetMapping("/book/{title}")
-    fun getBookByTitle(@PathVariable title:String):ResponseEntity<BookDto>{
-        return ResponseEntity.ok(bookService.)
+    @GetMapping("/book/{isbn}")
+    fun getBookByTitle(@PathVariable isbn:String):ResponseEntity<BookDto>{
+        return ResponseEntity.ok(bookService.findByIsbn(isbn));
     }
 }
