@@ -7,6 +7,5 @@ interface BookRepository:JpaRepository<Book,String> {
 
     fun findBookByIsbn(isbn:String):Book?
     fun getAllBooksByAuthor(author:String):List<Book>
-    fun findBookByTitle(title:String):Book?
 
 }

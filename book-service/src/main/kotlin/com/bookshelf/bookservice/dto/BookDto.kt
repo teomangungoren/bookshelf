@@ -7,7 +7,7 @@ data class BookDto @JvmOverloads constructor(
     val title:String,
     val author:String,
     val categoryName:String,
-    val bookYear:String,
+    val bookYear:Int,
     val isbn:String
 ){
 

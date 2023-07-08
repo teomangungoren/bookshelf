@@ -2,6 +2,7 @@ package com.bookshelf.bookservice.service
 
 import com.bookshelf.bookservice.dto.BookDto
 import com.bookshelf.bookservice.exception.BookNotFoundException
+import com.bookshelf.bookservice.model.Book
 import com.bookshelf.bookservice.repository.BookRepository
 import org.springframework.stereotype.Service
 import java.util.stream.Collectors
@@ -18,7 +19,7 @@ class BookService(private val bookRepository:BookRepository) {
     fun findByIsbn(isbn:String):BookDto{
         return bookRepository.findById(isbn)
             .map(BookDto::convert)
-            .orElseThrow { BookNotFoundException(isbn) };
+            .orElseThrow { BookNotFoundException("Book Not found by id: $isbn") };
     }
 
     fun getBooksByAuthor(author:String):List<BookDto>{
@@ -27,5 +28,8 @@ class BookService(private val bookRepository:BookRepository) {
             .map(BookDto::convert)
             .collect(Collectors.toList());
     }
+
+
+
 }
 

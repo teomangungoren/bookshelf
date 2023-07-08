@@ -2,6 +2,7 @@ package com.bookshelf.bookservice.controller
 
 import com.bookshelf.bookservice.dto.BookDto
 import com.bookshelf.bookservice.service.BookService
+import org.jetbrains.annotations.NotNull
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.validation.annotation.Validated
@@ -21,7 +22,7 @@ class BookController(private val bookService: BookService,) {
     }
 
     @GetMapping("/book/{isbn}")
-    fun getBookByTitle(@PathVariable isbn:String):ResponseEntity<BookDto>{
+    fun getBookByTitle(@PathVariable @NotNull isbn:String):ResponseEntity<BookDto>{
         return ResponseEntity.ok(bookService.findByIsbn(isbn));
     }
 }

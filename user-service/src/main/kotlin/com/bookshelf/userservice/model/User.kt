@@ -1,4 +1,4 @@
-package com.bookshelf.bookservice.model
+package com.bookshelf.userservice.model
 
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
@@ -7,17 +7,18 @@ import jakarta.persistence.Table
 import org.hibernate.annotations.GenericGenerator
 
 @Entity
-@Table(name = "books")
-data class Book @JvmOverloads constructor(
-
+@Table(name = "users")
+data class User @JvmOverloads public constructor(
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     val id:String?="",
-    val title:String,
-    val author:String,
-    val categoryName:String,
-    val bookYear:Int,
-    val isbn:String
+    val name:String?,
+    val surname:String?,
+    val username:String?,
+    val phone:String?,
+    val email:String?,
+    val password:String?
+
 
 )
