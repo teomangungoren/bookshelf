@@ -3,7 +3,7 @@ package com.bookshelf.bookservice.dto
 import com.bookshelf.bookservice.model.Book
 
 data class BookDto @JvmOverloads constructor(
-    val id:String?="",
+    val id:String?=null,
     val title:String,
     val author:String,
     val categoryName:String,

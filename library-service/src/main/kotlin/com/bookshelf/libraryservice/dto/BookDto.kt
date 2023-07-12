@@ -1,10 +1,9 @@
 package com.bookshelf.libraryservice.dto
 
 class BookDto @JvmOverloads constructor(
-    val id:String,
+    val id:String?=null,
     val title:String?="",
     val author:String?="",
-    val pressYear:Int?=0,
     val isbn:String?=""
 ) {
 }

@@ -14,7 +14,7 @@ data class Library @JvmOverloads constructor(
     val id:String?="",
 
     @ElementCollection
-    val userBooks:List<String>?=ArrayList()
+    val bookList:List<String>?=ArrayList()
 
 
 

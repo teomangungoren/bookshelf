@@ -3,7 +3,7 @@ package com.bookshelf.userservice.dto
 import com.bookshelf.userservice.model.User
 
 data class UserDto(
-    val id:String?=null,
+    val id:String?="",
     val name:String?,
     val surname:String?,
     val phone:String?,
